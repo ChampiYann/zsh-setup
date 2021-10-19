@@ -67,7 +67,8 @@ zinit light lukechilds/zsh-nvm
 
 # Load history enquirer, needs installation and nvm to be loaded
 if [[ $(command -v fcenquire) ]]; then
-  zinit ice atclone'export HISTFILE' \  # Somehow I need to force the export of the histfile
+  # Somehow I need to force the export of the histfile...
+  zinit ice atclone'export HISTFILE' \
     pick'scripts/zsh-history-enquirer.plugin.zsh'
   zinit light zthxxx/zsh-history-enquirer
 else
@@ -95,14 +96,15 @@ zinit ice if'[[ ! $(command -v python3.10) ]]' wait'[[ -n ${ZLAST_COMMANDS[(r)p3
 zinit snippet https://github.com/python/cpython/archive/refs/tags/v3.10.0.tar.gz
 
 # Install pip
-zinit ice if'[[ ! $(command -v pip) && $(command -v python3) ]]' as'program' pick'$ZPFX/pip/bin/pip3' \
+zinit ice if'[[ ! $(command -v pip3) && $(command -v python3) ]]' as'program' pick'$ZPFX/pip/bin/pip3' \
   atclone'python3 get-pip.py --prefix=$ZPFX/pip' atload'export PYTHONUSERBASE=$ZPFX/pip'  # You need this otherwise python doesn't know where to find it's packages
 zinit snippet https://bootstrap.pypa.io/get-pip.py
 
 ## Azure CLI
-zinit ice if'[[ ! $(command -v az) && $(command -v pip) && $(command -v python3) ]]' \
+# This basically a copy of the azure-cli install script in a completion snippet...
+zinit ice if'[[ ! $(command -v az) && $(command -v pip3) && $(command -v python3) ]]' \
   id-as'az_completion' wait'[[ -n ${ZLAST_COMMANDS[(r)azure*]} ]]' \
-  as'program' atload'source az_completion' pick'$ZPFX/azure-cli/az' \ # This is weird but it works...
+  as'program' atload'source az_completion' pick'$ZPFX/azure-cli/az' \
   atclone'pip3 install virtualenv; python3 -m virtualenv $ZPFX/azure-cli; source $ZPFX/azure-cli/bin/activate; pip3 install azure-cli --upgrade; deactivate; echo "#!/usr/bin/env bash" >> $ZPFX/azure-cli/az; echo "$ZPFX/azure-cli/bin/python -m azure.cli \"\$@\"" >>  $ZPFX/azure-cli/az'
 zinit snippet https://github.com/Azure/azure-cli/blob/dev/az.completion
 
