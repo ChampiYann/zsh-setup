@@ -100,6 +100,11 @@ zinit ice if'[[ ! $(command -v pip3) && $(command -v python3) ]]' as'program' pi
   atclone'python3 get-pip.py --prefix=$ZPFX/pip' atload'export PYTHONUSERBASE=$ZPFX/pip'  # You need this otherwise python doesn't know where to find it's packages
 zinit snippet https://bootstrap.pypa.io/get-pip.py
 
+# Load bash completion
+# Azure CLI completion exist only for bash as of now. Please fix it, it's ugly :(
+autoload -Uz bashcompinit
+bashcompinit
+
 ## Azure CLI
 # This basically a copy of the azure-cli install script in a completion snippet...
 zinit ice if'[[ ! $(command -v az) && $(command -v pip3) && $(command -v python3) ]]' \
@@ -142,10 +147,6 @@ zinit light zsh-users/zsh-autosuggestions
 
 # Load syntax highlighting
 zinit light zdharma/fast-syntax-highlighting
-
-# Load bash completion
-autoload -Uz bashcompinit
-bashcompinit
 
 # run compinit
 autoload -Uz compinit
