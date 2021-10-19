@@ -1,3 +1,6 @@
+# zsh
+apt install zsh
+
 # Python build requirements
 apt install build-essentials
 apt install libffi-dev
