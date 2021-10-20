@@ -66,17 +66,10 @@ zinit light romkatv/powerlevel10k
 zinit light lukechilds/zsh-nvm
 
 # Load history enquirer, needs installation and nvm to be loaded
-if [[ $(command -v fcenquire) ]]; then
-  # Somehow I need to force the export of the histfile...
-  zinit ice atclone'export HISTFILE' \
-    pick'scripts/zsh-history-enquirer.plugin.zsh'
-  zinit light zthxxx/zsh-history-enquirer
-else
-  echo ""
-  echo "History enquirer logic not installed."
-  echo "Make sure nvm/nodejs is installed and run \"npm i -g zsh-history-enquirer\""
-  echo "Skipping plugin installation."
-fi
+export HISTFILE # Somehow I need to force the export of the histfile...
+zinit ice atclone'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm; npm i -g zsh-history-enquirer' \
+  pick'scripts/zsh-history-enquirer.plugin.zsh'
+zinit light zthxxx/zsh-history-enquirer
 
 ## Python
 # Python 3.8
