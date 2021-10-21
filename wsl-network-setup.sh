@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ## Get host machine ip from original resolv.conf
 echo "Grep original nameserver/host machine IP"
 ORIGINAL_NS=$(grep "nameserver" /etc/resolv.conf)
