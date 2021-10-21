@@ -71,8 +71,6 @@ zinit ice atclone'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm
   pick'scripts/zsh-history-enquirer.plugin.zsh' atload'zinit load lukechilds/zsh-nvm'
 zinit light zthxxx/zsh-history-enquirer
 
-zinit ice atclone'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm; npm i -g zsh-history-enquirer' pick'scripts/zsh-history-enquirer.plugin.zsh'; zinit light zthxxx/zsh-history-enquirer
-
 ## Python
 # Python 3.8
 # If there is no version of python3 available, install python 3.8
