@@ -7,4 +7,6 @@ if [[ "$EUID" -ne 0 ]]; then
     echo "Writing wsl.conf..."
     echo "[user]" | sudo tee -a /etc/wsl.conf
     echo "default=$_USER" | sudo tee -a /etc/wsl.conf
+else
+    echo "Root is already the default user."
 fi
