@@ -62,15 +62,8 @@ zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load node
-zinit ice atload'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm'
-zinit light lukechilds/zsh-nvm
-
-# Load history enquirer, needs installation and nvm to be loaded
-export HISTFILE # Somehow I need to force the export of the histfile...
-zinit ice atclone'npm i -g zsh-history-enquirer' \
-  pick'scripts/zsh-history-enquirer.plugin.zsh'
-zinit light zthxxx/zsh-history-enquirer
+# Load history search 
+zinit load zdharma/history-search-multi-word
 
 ## Python
 # Python 3.8
