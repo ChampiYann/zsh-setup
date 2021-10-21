@@ -63,11 +63,12 @@ zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load node
+zinit ice atload'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm'
 zinit light lukechilds/zsh-nvm
 
 # Load history enquirer, needs installation and nvm to be loaded
 export HISTFILE # Somehow I need to force the export of the histfile...
-zinit ice atclone'nvm install --lts; nvm use --delete-prefix --lts; npm i -g npm; npm i -g zsh-history-enquirer' \
+zinit ice atclone'npm i -g zsh-history-enquirer' \
   pick'scripts/zsh-history-enquirer.plugin.zsh' atload'zinit load lukechilds/zsh-nvm'
 zinit light zthxxx/zsh-history-enquirer
 
