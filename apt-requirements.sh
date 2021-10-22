@@ -4,9 +4,7 @@ apt update
 apt upgrade
 
 # zsh
-apt install zsh
+apt install -y zsh
 
 # Python build requirements
-apt install build-essential
-apt install libffi-dev
-apt install zlib1g-dev
+apt install -y build-essential libffi-dev zlib1g-dev
