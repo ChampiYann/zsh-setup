@@ -153,3 +153,7 @@ alias la='ls -lAh'
 
 # Clear alias
 alias c='clear'
+
+# Set git config
+alias gpers='git config user.email \"yann.rosema@hotmail.com\"; git config user.name \"Yann Rosema\"'
+alias gcgk='git config user.email \"yann.rosema@cegeka.com\"; git config user.name \"Yann Rosema\"'
