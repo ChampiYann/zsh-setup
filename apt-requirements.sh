@@ -7,4 +7,4 @@ apt upgrade
 apt install -y zsh
 
 # Python build requirements
-apt install -y build-essential libffi-dev zlib1g-dev
+apt install -y build-essential libffi-dev zlib1g-dev libssl-dev
